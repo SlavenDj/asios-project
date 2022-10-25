@@ -5,14 +5,14 @@ export function MainContent() {
 	const [listOfNews, setListOfNews] = useState([]);
 
 	const fetchNews = async () => {
-		// const url =
-		// 	'https://newsapi.org/v2/top-headlines?' +
-		// 	'sources=bbc-news&' +
-		// 	'apiKey=1558b4d6803c4e34a6c818825a2e5eed';
-		// const req = new Request(url);
-		// const newss = await fetch(req);
-		// const res = await newss.json();
-		// setListOfNews(res.articles);
+		const url =
+			'https://newsapi.org/v2/top-headlines?' +
+			'sources=bbc-news&pageSize=6&' +
+			'apiKey=1558b4d6803c4e34a6c818825a2e5eed';
+		const req = new Request(url);
+		const newss = await fetch(req);
+		const res = await newss.json();
+		setListOfNews(res.articles);
 	};
 
 	useEffect(() => {
