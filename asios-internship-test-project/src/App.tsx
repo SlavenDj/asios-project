@@ -10,13 +10,13 @@ function App() {
 	const fetchNews = async () => {
 		const url =
 			'https://newsapi.org/v2/top-headlines?' +
-			// 	'sources=bbc-news&' +
+			'sources=bbc-news&' +
 			'apiKey=1558b4d6803c4e34a6c818825a2e5eed';
 
-		// const req = new Request(url);
-		// const newss = await fetch(req);
-		// const res = await newss.json();
-		// setListOfNews(res.articles);
+		const req = new Request(url);
+		const newss = await fetch(req);
+		const res = await newss.json();
+		setListOfNews(res.articles);
 
 		console.log(listOfNews);
 	};
@@ -35,10 +35,10 @@ function App() {
 					setListOfNews={setListOfNews}
 				/>
 				<div className='pagination'>
-					<span>1</span>
-					<span>2</span>
-					<span>3</span>
-					<span>Next</span>
+					<button>1</button>
+					<button>2</button>
+					<button>3</button>
+					<button>Next</button>
 				</div>
 			</main>
 
@@ -129,17 +129,24 @@ function App() {
 }
 
 function NewsFeed(props: any) {
+	function foramtedDate(date: string) {
+		const newDate = new Date(date);
+		return `${newDate.getDate()}.${newDate.getMonth()}.${newDate.getFullYear()}`;
+	}
 	return (
 		<div className='News'>
 			{props.listOfNews.length ? (
 				props.listOfNews.map((news: any, index: number) => (
-					<div className='singleArticle' key={index}>
+					<a className='singleArticle' key={index} href={news.url}>
 						<img src={news.urlToImage} alt='' />
-						<h3>{news.title}</h3>
-						<p className='description'>{news.description}</p>
-						<p className='date'>{news.publishedAt}</p>
-						<a href={news.url}>test</a>
-					</div>
+						<div className='news-content'>
+							<h3>{news.title}</h3>
+							<p className='description'>{news.description}</p>
+							<p className='date'>
+								{foramtedDate(news.publishedAt)}
+							</p>
+						</div>
+					</a>
 				))
 			) : (
 				<Skeleton count={6} highlightColor='#94bc34' />
@@ -153,13 +160,13 @@ function Header() {
 		<header>
 			<div className='logo_nav'>
 				<img src={asiosoLogo} alt='' />
-				<nav>
+				<nav className='toggle-menu'>
 					<ul>
 						<li>
-							<a href='#'>Home</a>
+							<a href='https://asioso.com/'>Home</a>
 						</li>
 						<li id='activeCard'>
-							<a href='#'>News</a>
+							<a href='/'>News</a>
 						</li>
 						<li>
 							<a href='#'>Gadgets</a>
@@ -168,12 +175,26 @@ function Header() {
 							<a href='#'>Video</a>
 						</li>
 						<li>
-							<a href='#'>contact us</a>
+							<a href='https://www.asioso.com/en/footer/Contact'>
+								contact us
+							</a>
 						</li>
 					</ul>
 				</nav>
 			</div>
-			<div className='icons'>
+			<i
+				className='ri-menu-5-line'
+				onClick={() => {
+					document
+						.querySelector('nav')
+						?.classList.toggle('toggle-menu');
+
+					document
+						.querySelector('.icons')
+						?.classList.toggle('toggle-menu');
+				}}
+			></i>
+			<div className='icons toggle-menu'>
 				<i className='ri-android-line'></i>
 				<i className='ri-apple-line'></i>
 				<i className='ri-rss-line'></i>
