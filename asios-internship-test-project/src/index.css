@@ -10,6 +10,7 @@ body {
 	margin: 0;
 	max-width: 100vw;
 	min-height: 100vh;
+	scroll-behavior: smooth;
 }
 body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -333,4 +334,23 @@ footer form {
 }
 .footer-asioso-team {
 	color: #999;
+}
+.go-to-top {
+	position: fixed;
+	bottom: 16px;
+	right: 16px;
+	height: 44px;
+	width: 44px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+}
+.go-to-top button {
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.go-to-top:hover {
+	text-decoration: none;
 }
