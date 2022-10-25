@@ -39,7 +39,7 @@ a:hover {
 .right {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 1.75rem;
 }
 .right li {
 	display: flex;
@@ -87,6 +87,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	max-width: 740px;
 }
 nav ul {
 	display: flex;
@@ -128,9 +129,10 @@ nav {
 	color: #fff;
 	font-size: 2rem;
 	transition: 0.3s;
+	cursor: pointer;
 }
 [class^='ri-']:hover {
-	text-decoration: underline;
+	color: #b0ef1e;
 }
 img {
 	width: 125px;
@@ -139,7 +141,7 @@ img {
 	color: #999;
 }
 .right li {
-	padding: 0.5rem;
+	padding: 0.5rem 0;
 }
 hr {
 	border-style: dashed;
@@ -149,6 +151,10 @@ button {
 	background-color: #94bc34;
 	color: inherit;
 	font-weight: bold;
+	cursor: pointer;
+}
+button:hover {
+	opacity: 0.9;
 }
 input,
 button {
@@ -204,6 +210,9 @@ footer form {
 	flex-direction: column;
 	gap: 1rem;
 }
+.footer {
+	color: #666;
+}
 .singleArticle {
 	display: flex;
 	flex-direction: column;
@@ -221,8 +230,107 @@ footer form {
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
-	padding: 12px;
+	padding: 12px 24px;
 }
 .date {
+	color: #999;
+}
+@media (width > 768px) {
+	.News {
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+	.singleArticle {
+		max-width: calc(50% - 8px);
+	}
+	.singleArticle:hover {
+		background-color: #a2bd64;
+	}
+	.singleArticle:hover .date {
+		color: #fff;
+	}
+	.footer-content {
+		flex-direction: row;
+	}
+	.moto {
+		text-align: left;
+	}
+	main > * {
+		width: 100%;
+		max-width: 740px;
+	}
+	.footer-content {
+		justify-content: space-between;
+		width: 100%;
+		max-width: 1000px;
+	}
+	.right {
+		flex-direction: row;
+	}
+	.menu-icon {
+		display: none;
+	}
+	.icons {
+		position: static;
+	}
+	footer {
+		align-items: center;
+		padding: 48px 16px;
+		gap: 48px;
+	}
+	footer form {
+		flex-direction: row;
+	}
+	footer form input {
+		width: 300px;
+	}
+	.right {
+		width: 100%;
+		justify-content: end;
+	}
+	.right > * {
+		width: 100%;
+		max-width: 200px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.left {
+		width: 100%;
+		align-items: flex-start;
+	}
+	footer img {
+		margin: 0;
+	}
+	.News > span {
+		width: 100%;
+	}
+	nav {
+		position: static;
+		display: block;
+		padding: 0;
+	}
+	nav ul {
+		flex-direction: row;
+	}
+	.toggle-menu {
+		display: block;
+	}
+	#activeCard {
+		text-decoration: underline;
+	}
+	#activeCard::before {
+		content: none;
+	}
+	.logo_nav {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+.News a {
+	text-decoration: none;
+}
+.footer-asioso-team {
 	color: #999;
 }
