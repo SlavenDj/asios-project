@@ -120,6 +120,7 @@ nav {
 	position: absolute;
 	animation: an 1s infinite alternate;
 }
+
 @keyframes an {
 	from {
 		left: -4ch;
@@ -179,6 +180,8 @@ footer img {
 	display: block;
 }
 .icons {
+	display: flex;
+	gap: 12px;
 	position: absolute;
 	z-index: 3;
 	bottom: 16px;
@@ -366,7 +369,7 @@ footer form {
 		flex-direction: row;
 	}
 	.toggle-menu {
-		display: block;
+		display: flex;
 	}
 	#activeCard {
 		text-decoration: underline;
